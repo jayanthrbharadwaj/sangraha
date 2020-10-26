@@ -403,7 +403,7 @@ module.exports = () => {
 
   WIKI.logger.info(`HTTP Server on port: [ ${WIKI.config.port} ]`)
   WIKI.server = http.createServer(app)
-  WIKI.server.listen(WIKI.config.port, WIKI.config.bindIP)
+  WIKI.server.listen(process.env.PORT || WIKI.config.port, WIKI.config.bindIP)
 
   var openConnections = []
 

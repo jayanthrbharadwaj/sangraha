@@ -23,7 +23,7 @@ module.exports = {
     this.servers.http = http.createServer(WIKI.app)
     this.servers.graph.installSubscriptionHandlers(this.servers.http)
 
-    this.servers.http.listen(WIKI.config.port, WIKI.config.bindIP)
+    this.servers.http.listen(process.env.PORT || WIKI.config.port, WIKI.config.bindIP)
     this.servers.http.on('error', (error) => {
       if (error.syscall !== 'listen') {
         throw error
